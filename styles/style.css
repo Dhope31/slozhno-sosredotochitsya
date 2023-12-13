@@ -1,5 +1,461 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
+/* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
 
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  margin: 0 auto;
+  background-color: var(--bg-color, #000028);
+  background-image: var(--bg-image, url(../images/cover-image-dark.png));
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  overflow-x: hidden;
+  width: 100%;
 }
+
+/*чердак*/
+
+.header {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr 192px 1fr; 
+  padding: 10px;
+}
+
+@media (768px <= width < 1024px) {
+  .header {
+    padding: 20px;
+    margin-bottom: 60px;
+    grid-template-rows: 1fr 99px 1fr; 
+  }
+}
+
+@media (width >= 1024px) {
+  .header {
+    padding: 20px;
+    margin-bottom: 60px;
+    grid-template-rows: 1fr 130px 1fr; 
+  }
+}
+
+.decorated-zone::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  vertical-align: baseline;
+  width: 25px;
+  height: 25px;
+  border-top: 1px solid var(--decor-color, #FF0070);
+  border-right: 1px solid var(--decor-color, #FF0070);
+  right: 10px;
+  top: 10px;
+}
+
+@media (min-width: 768px) {
+  .decorated-zone::after {
+    right: 20px;
+    top: 20px;
+  }
+}
+
+.decorated-zone::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  vertical-align: baseline;
+  width: 25px;
+  height: 25px;
+  border-bottom: 1px solid var(--decor-color, #FF0070);
+  border-left: 1px solid var(--decor-color, #FF0070);
+  left: 10px;
+  bottom: 10px;
+}
+
+@media (min-width: 768px) {
+  .decorated-zone::before {
+    left: 20px;
+    bottom: 20px;
+  }
+}
+
+/*чердак, первый блок грид-контейнера*/
+
+.decorative_element {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  color: var(--acent-color);
+  text-transform: uppercase;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+  top: 10px;
+  right: 18px;
+  gap: 10px;
+  position: absolute;
+  visibility: var(--visibility, visible);
+}
+
+@media (min-width: 768px) {
+  .decorative_element {
+    right: 28px;
+    top: 20px 
+  }
+}
+
+.decorative_element::after {
+  content: "";
+  vertical-align: middle;
+  width: 10.5px;
+  height: 10.5px;
+  border-radius: 4.5px;
+  background-color: var(--decor-color, #FF0070);
+  box-shadow: 0px 0px 4px var(--decor-color, #FF0070);
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: end;
+  gap: 13px;
+  margin: 66.5px 0;
+}
+
+@media (768px <= width < 1024px) {
+  .header__theme-menu-list {
+    margin: 174.5px 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header__theme-menu-list {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0;
+    gap: 15px;
+  }
+}
+
+.header__theme-menu-button {
+  background-color: transparent;
+  color: var(--button-color, #FF0070);
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  text-transform: lowercase;
+  outline: none;
+  border: none;
+  padding: 2px 13px;
+}
+
+.header__theme-menu-button:hover {
+  border: 1px solid var(--button-color-hoter, rgba(255, 0, 112, 0.40));
+  padding: 2px 13px;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-bottom: 1px solid var(--decor-color, #FF0070); 
+}
+
+.header__theme-menu-button_active {
+  pointer-events: none;
+  padding: 2px 13px;
+  border: 1px solid var(--decor-color, #FF0070);  
+}
+
+/*чердак, заголовок*/
+
+.header_title {
+  display: flex;
+  justify-items: flex-start;
+  align-items: flex-start;
+}
+
+.title {
+  display: flex;
+  justify-items: flex-start;
+  align-items: flex-start;
+  color: var(--header-title-text-color, #DB00FF);
+  text-shadow: 4px 4px 0px var(--header-title-text-shadow, #FF0070);
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 82.5%;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .header_title {
+      font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem) ;
+      margin-left: -20px;
+  }
+}
+
+/*чердак, текст*/
+
+.header_text_block {
+  display: flex;
+  justify-content: right;
+}
+
+.header_text {
+  margin: 55px 0 56px;
+}
+
+@media (min-width: 768px) {
+  .header_text {
+    width: 50%;
+    margin: 132px 0 193px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header_text {
+    margin: 114px 0 114px;
+  }
+}
+
+.title-decor {
+  color: var(--header-text-color, #000028);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 23.4px;
+  background-color: var(--acent-color, #FF0070);
+}
+
+/*основная часть*/
+
+.main {
+  min-block-size: 100vh;
+  padding: 0 10px;
+  margin-top: 40px;
+}
+
+@media (min-width: 768px) {
+  .main {
+    padding: 0 20px;
+  }
+}
+
+.section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+@media (min-width: 768px) {
+  .section {
+    margin-bottom: 80px;
+  }
+
+  .section:nth-child(1) {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+  }
+
+  .section:nth-child(3)  {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+  }
+}
+
+.section:last-child {
+  margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .section:last-child {
+    margin-bottom: 60px;
+  }
+}
+
+.main_title {
+  width: 100%;
+  color: var(--body-first_title-text-color, #FF0070);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 23.4px;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+@media (768px <= width < 1024px) {
+  .style-main_title .main_title {
+    display: block;
+    max-width: 60%;
+  }
+}
+
+@media (width >= 1024px) {
+  .style-main_title .main_title {
+    display: block;
+    width: 100%;
+  }
+}
+
+.item_title {
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.item_text {
+  width: 100%;
+  color: var(--text-color, #F1B2CE);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23.4px;
+  margin-bottom: 20px;
+}
+
+/*ссылка в тексте*/
+
+.item_link {
+  color: var(--text-color, #F1B2CE);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-shadow: 2px 2px 0px var(--acent-color, #FF0070);
+  text-decoration: none;
+}
+
+.item_link:hover {
+  text-decoration: underline;
+}
+
+.item_link:focus-visible {
+  border: 1px solid var(--text-color, #F1B2CE);
+  border-radius: none;
+}
+
+.without_bottom_margin {
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .style-main_title {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+.text_block h4 { 
+  margin-bottom: 20px;
+}
+
+.item_text_block .item_title {
+  font-weight: 400;
+}
+
+/*список картинок*/
+
+@media (min-width: 768px) {
+    .section:nth-child(4) .item_title {
+    margin-bottom: 20px;
+  }
+}
+
+.list_image {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media (min-width: 768px) {
+  .list_image {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 192px 230px 318px;
+    gap: 20px;
+  }
+
+  .gallery__grid-item:nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  .gallery__grid-item:nth-child(2) {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: span 2;
+  }
+
+  .gallery__grid-item:nth-child(3) {
+    grid-row-start: 2;
+    grid-row-end: span 2;
+  }
+
+  .gallery__grid-item:nth-child(5) {
+    grid-column-start: 2;
+    grid-column-end: span 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+}
+
+@media (min-width: 1024px) {
+  .list_image {
+    grid-template-rows: 260px 315px 428px;
+  }
+}
+
+.image_list_item {
+  width: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .image_list_item {
+    background-size: cover;
+    height: 100%;
+  }
+}
+
+/*подвал*/
+
+.footer {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer_title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer .title {
+  text-shadow: 2px 2px 0px var(--acent-color, #FF0070);
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+}
+
+@media (min-width: 768px) {
+  .footer .title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+}
+
+
