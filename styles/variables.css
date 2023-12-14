@@ -29,13 +29,32 @@
     --body-first_title-text-color: #353430;
     --body-second_title-text-color: #353430;
     --text-color: #353430;
-    --acent-color: #353430;
+    --acent-color: #FF8DCB;
     --decor-color: #353430;
     --bg-color: #FFF1F7;
-    --bg-image: url(../images/cover-image-light.png);  
-    --visibility: hidden; 
+    --bg-image: url(../images/cover-image-light.png);
+    --visibility: hidden;
     }
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --button-color: #FF0070;
+    --button-color-hoter: rgba(255, 0, 112, 0.40);
+    --header-title-text-color: #DB00FF;
+    --header-title-text-shadow: #FF0070;
+    --header-text-color: #000028;
+    --body-first_title-text-color: #FF0070;
+    --body-second_title-text-color: #000028;
+    --acent-color: #FF0070;
+    --decor-color: #FF0070;
+    --text-color: #F1B2CE;
+    --bg-color: #000028;
+    --bg-image: url(../images/cover-image-dark.png);
+    --visibility: visible;
+    }
+}
+
 
 @media (min-width: 1024px) and (prefers-color-scheme: light) {
   :root {
