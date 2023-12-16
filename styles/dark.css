@@ -3,7 +3,7 @@
   и их переопределение под различные устройства
 */
 
-.page.thame_dark {
+.page.theme_dark {
   --button-color: #FF0070;
   --button-color-hoter: rgba(255, 0, 112, 0.40);
   --header-title-text-color: #DB00FF;
